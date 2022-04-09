@@ -67,7 +67,7 @@ class CalcController {
 
   playAudio(){
     if (this._audioOnOff){
-      
+
        this._audio.currentTime = 0;
        this._audio.play();
 
@@ -392,11 +392,19 @@ class CalcController {
   }
 
   get displayCalc() {
+
     return this._displayCalcEl.innerHTML;
+
   }
 
   set displayCalc(value) {
+
+    if(value.toString().length > 10){
+      this.setError();
+      return false;
+    }
     this._displayCalcEl.innerHTML = value;
+
   }
 
   get currentDate() {
